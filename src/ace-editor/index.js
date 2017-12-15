@@ -33,17 +33,6 @@ export default {
             if (newVal !== oldVal) {
                 this.myConfig = Object.assign({}, defaultConfig, newVal);
             }
-        },
-        value (newVal) {
-           this.$ace.setValue(newVal, 1)
-        },
-        lang (newVal) {
-           require(`brace/mode/${newVal}`)
-           this.$ace.getSession().setMode(`ace/mode/${newVal}`)
-        },
-        fullScreen () {
-            this.$el.classList.toggle('ace-full-screen')
-            this.$ace.resize()
         }
     },
     methods: {
