@@ -2,12 +2,12 @@
     <div id="app">
         <div class="ace-editor-wrap">
             <ace-editor
-                class="ace-full-screen"
                 :config = "config"
                 @init="init"
                 @input= "aceChange"
             ></ace-editor>
         </div>
+        <button @click="change">换主题</button>
     </div>
 </template>
 
@@ -18,11 +18,12 @@ export default {
   data () {
     return {
       config: {
-          width:1000,
-          height:1000,
+          width:800,
+          height:800,
           value: '',
           autoCompletion: true,
-          fullScreen: true
+          fullScreen: true,
+          theme: 'monokai'
       }
     }
   },
@@ -32,6 +33,12 @@ export default {
       },
       aceChange (content,$ace,$fn) {
           console.log('content', content)
+      },
+      // 动态修改主题
+      changeTheme () {
+        this.config = Object.assign({}, this.config, {
+            theme: 'eclipse' 
+        })
       }
   },
   components: {

@@ -52,6 +52,12 @@ export default {
       },
       aceChange (content,$ace,$fn) {
           console.log('content', content)
+      },
+      // **新增** 动态修改主题
+      changeTheme () {
+        this.config = Object.assign({}, this.config, {
+            theme: 'eclipse' 
+        })
       }
   },
   components: {
